@@ -3,11 +3,17 @@ import pandas as pd
 df = pd.read_csv('ratings.csv')
 df = df.drop(['Date', 'Name', 'Year', 'Letterboxd URI'], axis=1)
 
+def rating_occurrence(n):
+    column = (df['Rating'] == n).sum()
+    return column
 
-column1 = (df['Rating'] == 0.5).sum()
-print(column1)
-column2 = (df['Rating'] == 1.0)
-
-column3 = (df['Rating'] == 1.5).sum()
-print(column3)
-
+print(rating_occurrence(0.5))
+print(rating_occurrence(1.0))
+print(rating_occurrence(1.5))
+print(rating_occurrence(2.0))
+print(rating_occurrence(2.5))
+print(rating_occurrence(3.0))
+print(rating_occurrence(3.5))
+print(rating_occurrence(4.0))
+print(rating_occurrence(4.5))
+print(rating_occurrence(5.0))
