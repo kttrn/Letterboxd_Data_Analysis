@@ -1,5 +1,6 @@
 import pandas as pd
 import csv
+from matplotlib import pyplot as plt
 
 df = pd.read_csv('ratings.csv')
 df = df.drop(['Date', 'Name', 'Year', 'Letterboxd URI'], axis=1)
@@ -32,6 +33,9 @@ with open('my_ratings.csv', 'w', newline='') as f:
     writer.writerow(header)
     writer.writerow(data)
 
+# Visualizing
 my_ratings = pd.read_csv('my_ratings.csv')
-print(my_ratings)
+print("Contents in csv file:\n", my_ratings)
+my_ratings.plot(kind='bar', figsize=(10, 5), title="My Letterboxd ratings")
+plt.show()
 
